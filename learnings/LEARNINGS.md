@@ -88,3 +88,20 @@ Ongoing record of learnings, corrections, and best practices.
 **改正**：先用 `taskkill /F /IM reasonix-desktop.exe` 杀掉进程，再用批处理文件原子化执行 rmdir + mklink。
 
 **教训**：涉及 Reasonix 配置文件目录操作时，先检查进程列表。
+
+## 2026-05-29: GitHub Pages 不暴露点开头的隐藏文件（correction）
+
+**问题**：将 `.learnings/LEARNINGS.md` 推送到 GitHub Pages 后访问 404，因为 GitHub Pages 默认不暴露以 `.` 开头的目录。
+
+**改正**：用 `git mv .learnings learnings` 重命名为普通目录，更新 `.gitignore` 去掉 `.learnings/` 规则，重新 push。
+
+**教训**：GitHub Pages 上发布内容不要用 `.` 开头的文件名/目录名，直接用普通名称。
+
+## 2026-05-29: 巡逻看板唯一地址确认（correction）
+
+**问题**：我混淆了看板首页和学习日志的 URL，以为学习日志是一个单独的路径。
+
+**改正**：看板唯一地址为 https://xiaobaby230521.github.io/claude-dashboard/
+学习日志在首页访问不到，需通过 GitHub 仓库直接查看。
+
+**教训**：用户给出的 URL 就是正确的，不需要自己拼接子路径。确认后再记忆。
